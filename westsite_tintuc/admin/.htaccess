@@ -1,0 +1,36 @@
+# Bảo vệ file .htaccess
+<Files .htaccess>
+Order Allow,Deny
+Deny from all
+</Files>
+ 
+# Rewrite url
+RewriteEngine on
+# 1 tham số_thì đó là $tab tính từ admin/
+RewriteRule ^([a-zA-Z0-9_-]+)$ index.php?tab=$1
+RewriteRule ^([a-zA-Z0-9_-]+)/$ index.php?tab=$1
+# 2 tham số thì đó lần lượt là $tab đến $ac tính từ admin/
+RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$ index.php?tab=$1&ac=$2
+RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/$ index.php?tab=$1&ac=$2
+# 3 tham số thì đó lần lượt là $tab rồi đến $ac và cuối cùng là $id tính từ admin
+RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$ index.php?tab=$1&ac=$2&id=$3
+RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/$ index.php?tab=$1&ac=$2&id=$3
+
+
+#bài 7_ để cấu hình serve_rewrite url để tối ưu hóa bộ máy tìm kiếm tốt cho SEO
+
+
+
+
+
+#bài 13_thiết lập địa chỉ url localhost để phân trang bài viết
+# Url phân trang bài viết_nếu địa chỉ trên trình duyệt có dạng thế này
+#thiết lập thứ tự cho 2 tham số thứ nhất là $tab và thứ 2 là $page
+RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$ index.php?tab=$1&page=$2
+
+RewriteRule ^([a-zA-Z0-9_-]+)&page=([a-zA-Z0-9_-]+)$ index.php?tab=$1&page=$2
+#Link trang chứa
+
+
+
+
